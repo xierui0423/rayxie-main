@@ -1,4 +1,3 @@
 language: node_js
-before_install: dpkg --compare-versions `npm -v` ge 5.8 || npm i -g npm@^5.8
 node_js:
   - "8"
