@@ -5,6 +5,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_d59830f32322_key -iv $encrypted_d59830f32322_iv
   -in deploy_key.enc -out ./deploy_key -d
 - chmod 600 ./deploy_key
+- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 before_script:
 - npm i -g gatsby
 script:
