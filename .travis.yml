@@ -10,6 +10,7 @@ before_script:
 - npm i -g gatsby
 script:
 - npm run test
+- npm run build
 after_success:
 - scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site/public
 - ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
