@@ -1,18 +1,15 @@
 language: node_js
 node_js:
 - '10'
-
 before_install:
 - openssl aes-256-cbc -K $encrypted_d59830f32322_key -iv $encrypted_d59830f32322_iv
   -in deploy_key.enc -out ./deploy_key -d
 - chmod 600 ./deploy_key
-
 before_script:
 - npm i -g gatsby
 script:
 - npm run test
-
 after_success:
-  - scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site/public
-  - ssh -i ./deploy_key ubuntu@rayxie.me
-  - ./start-site
+- scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site/public
+- ssh -i ./deploy_key ubuntu@rayxie.me
+- ./start-site
