@@ -12,5 +12,5 @@ script:
 - npm run test
 - npm run build
 after_success:
-- scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site/public
+- scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site
 - ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
