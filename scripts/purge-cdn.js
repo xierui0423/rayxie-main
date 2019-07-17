@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk');
+const AWS = require('/home/travis/.nvm/versions/node/v10.16.0/lib/node_modules/aws-sdk');
 
 
 var cloudfront = new AWS.CloudFront({
