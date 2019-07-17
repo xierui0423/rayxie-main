@@ -19,4 +19,6 @@ script:
 after_success:
 - scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site
 - ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
+- which node
+- echo $NODE_PATH
 - node ./scripts/purge-cdn.js $aws_access_key $aws_secret_key
