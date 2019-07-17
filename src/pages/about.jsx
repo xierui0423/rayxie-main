@@ -6,7 +6,7 @@ import { Markdown } from 'react-showdown';
 
 export default ({data}) => (
   <Layout>
-    <Header>About Gatsby test travis</Header>
+    <Header>About Gatsby test travis + cloudfront</Header>
     <h3>About </h3>
     <ul>
     {data.strapi.articles.map((article, index)=>(
