@@ -1,5 +1,5 @@
-const AWS = require('/home/travis/.nvm/versions/node/v10.16.0/lib/node_modules/aws-sdk');
-
+// Somehow travis environment doesn't seems to read NODE_PATH correctly, we pass in it explicitly
+const AWS = require(process.argv[4] + '/aws-sdk');
 
 var cloudfront = new AWS.CloudFront({
   apiVersion: '2019-03-26',
@@ -20,8 +20,6 @@ const params = {
     }
   }
 };
-
-console.log(1);
 
 cloudfront.createInvalidation(params,(err, data)=>{
   if (err) console.log(err, err.stack); // an error occurred
