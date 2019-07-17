@@ -21,6 +21,6 @@ after_success:
 # - ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
 - NODE_PATH=`npm root -g`
 - echo $NODE_PATH
-- cd $NODE_PATH
-- ls
+# - cd $NODE_PATH
+# - ls
 - node ./scripts/purge-cdn.js $aws_access_key $aws_secret_key
