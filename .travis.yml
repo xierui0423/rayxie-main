@@ -12,9 +12,11 @@ before_install:
 - echo -e "Host rayxie.me\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 before_script:
 - npm list -g gatsby-cli --depth=0 || npm i -g gatsby
+- npm list -g aws-sdk --depth=0 || npm i -g aws-sdk
 script:
 - npm run test
 - npm run build
 after_success:
 - scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site
 - ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
+- node ./scripts/purge-cdn.js $aws_access_key $aws_secret_key
