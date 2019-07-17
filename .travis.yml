@@ -5,19 +5,21 @@ cache:
   directories:
     # Replace "grunt-cli" with whatever global binary you're using
     - $(npm config get prefix)/lib/node_modules
-before_install:
-- openssl aes-256-cbc -K $encrypted_d59830f32322_key -iv $encrypted_d59830f32322_iv
-  -in deploy_key.enc -out ./deploy_key -d
-- chmod 600 ./deploy_key
-- echo -e "Host rayxie.me\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-before_script:
-- npm list -g gatsby-cli --depth=0 || npm i -g gatsby
-- npm list -g aws-sdk --depth=0 || npm i -g aws-sdk
-script:
-- npm run test
-- npm run build
+# before_install:
+# - openssl aes-256-cbc -K $encrypted_d59830f32322_key -iv $encrypted_d59830f32322_iv
+#   -in deploy_key.enc -out ./deploy_key -d
+# - chmod 600 ./deploy_key
+# - echo -e "Host rayxie.me\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+# before_script:
+# - npm list -g gatsby-cli --depth=0 || npm i -g gatsby
+# - npm list -g aws-sdk --depth=0 || npm i -g aws-sdk
+# script:
+# - npm run test
+# - npm run build
 after_success:
-- scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site
-- ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
+# - scp -r -i ./deploy_key ./public ubuntu@rayxie.me:~/site
+# - ssh -i ./deploy_key ubuntu@rayxie.me sh ./start-site
 - NODE_PATH=`npm root -g`
+- echo `npm root -g`
+- echo $NODE_PATH
 - node ./scripts/purge-cdn.js $aws_access_key $aws_secret_key
