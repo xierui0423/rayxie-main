@@ -4,8 +4,8 @@ import Layout from "../components/layout/layout"
 
 export default () => (
   <Layout>
-    <Header headerText="Contact Us!" />
-    <p>Under Construction...</p>
+    <Header headerText="Something went wrong..." />
+    <p>Oops...</p>
     <img src="https://source.unsplash.com/random/400x200" alt="" />
   </Layout>
 )

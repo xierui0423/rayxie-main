@@ -7,7 +7,7 @@ const ListLink = props => (
   </li>
 )
 
-export default ({ children }) =>{
+export default ({ children, hideNav }) =>{
   const data = useStaticQuery(
     graphql`
       query {
@@ -20,19 +20,18 @@ export default ({ children }) =>{
     `
   )
 
-
   return <div className="main-container" style={{ padding: "2rem" }}>
   <header>
-    <nav>
+    {!hideNav && <nav>
       <ul>
         <ListLink to="/">Home</ListLink>  
-        <ListLink to="/about/">ABOUT</ListLink>
-        <ListLink to="/contact/">CONTACT</ListLink>
+        <ListLink to="/posts/">Posts</ListLink>
+        <ListLink to="/contact/">Contact</ListLink>
       </ul>
-    </nav>
+    </nav>}
   </header>
   <main >
-    <h1>{data.site.siteMetadata.title}</h1>
+    {/* <h1>{data.site.siteMetadata.title}</h1> */}
     {children}
   </main>
   </div>;
