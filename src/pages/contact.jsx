@@ -6,6 +6,6 @@ export default () => (
   <Layout>
     <Header headerText="Contact Us!" />
     <p>Under Construction...</p>
-    <img src="https://source.unsplash.com/random/400x200" alt="" />
+    <img src="https://source.unsplash.com/random/800x800" alt="" />
   </Layout>
 )

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, useStaticQuery, graphql} from 'gatsby';
 
 const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li>
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
@@ -20,7 +20,7 @@ export default ({ children, hideNav }) =>{
     `
   )
 
-  return <div className="main-container" style={{ padding: "2rem" }}>
+  return <div className="main-container">
   <header>
     {!hideNav && <nav>
       <ul>
@@ -30,9 +30,11 @@ export default ({ children, hideNav }) =>{
       </ul>
     </nav>}
   </header>
-  <main >
-    {/* <h1>{data.site.siteMetadata.title}</h1> */}
-    {children}
+  <main>
+    <div className={`${hideNav ? '' : 'content-wrapper'}`}>
+      {/* <h1>{data.site.siteMetadata.title}</h1> */}
+      {children}
+    </div>
   </main>
   </div>;
 }
